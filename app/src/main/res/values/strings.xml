@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">AnonyMate</string>
+    <string name="welcome">Welcome!</string>
+    <string name="login">Login</string>
+    <string name="log_back_in">Log into your account</string>
+    <string name="signup">signup</string>
+    <string name="sign_in_as">SIGN IN AS A</string>
+    <string name="guest">GUEST</string>
+    <string name="Email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="forgotpassword">Forget Password</string>
+    <string name="don_t_have_">Don\'t have an account</string>
+    <string name="createone">Create one</string>
+
+
+    <string name="Signup">Sign up</string>
+    <string name="tagLineSignup">Let us help you find some friends!</string>
+    <string name="name">Name</string>
+
+    <string name="verify">Verify your email</string>
+    <string name="note1">CLick button to send verification link to your registered email</string>
+    <string name="resetPassword">Reset Password</string>
+    <string name="note2">Enter the registered email</string>
+    <string name="reset">Reset</string>
+</resources>

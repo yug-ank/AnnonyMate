@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "697719995097",
+    "project_id": "anonymate-c6286",
+    "storage_bucket": "anonymate-c6286.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697719995097:android:c3f44eb1715e39dd871cc8",
+        "android_client_info": {
+          "package_name": "com.xinicompany.annonymate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "697719995097-33k6tlce9p3aefihshp4tjuee61lo59j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xinicompany.annonymate",
+            "certificate_hash": "ca947381a5a3b8d48caf6b2ae08b1cd34d7ce322"
+          }
+        },
+        {
+          "client_id": "697719995097-hsoltqtqnivrdlbco7vbtah2nsuf046r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVd3AWoqNTOeDcSD0D3abRV50r3Syizfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "697719995097-hsoltqtqnivrdlbco7vbtah2nsuf046r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
