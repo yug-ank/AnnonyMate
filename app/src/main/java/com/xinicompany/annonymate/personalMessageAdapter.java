@@ -1,6 +1,7 @@
 package com.xinicompany.annonymate;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -20,27 +22,33 @@ public class personalMessageAdapter extends RecyclerView.Adapter<personalMessage
     private final DatabaseReference databaseReference;
     ArrayList<MessageObject> chat;
     Context context;
-
-    personalMessageAdapter(ArrayList<MessageObject> chat , Context context , DatabaseReference databaseReference){
+    int width;
+    int height;
+    String primaryUser;
+    personalMessageAdapter(ArrayList<MessageObject> chat , Context context , DatabaseReference databaseReference , int width , int height){
         this.chat = chat;
         this.context = context;
         this.databaseReference = databaseReference;
+        this.width = width;
+        this.height = height;
+        primaryUser = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
     }
 
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.text_view, null);
-        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT , ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.topMargin = 10;
+        ConstraintLayout.LayoutParams params =
+                new ConstraintLayout.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT , ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        params.setMargins(15 , 10 , 15  , 0);
         view.setLayoutParams(params);
-        return null;
+        return new viewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        databaseReference.child(chat.get(position).msgid).child("flag").setValue(true);
-        if( chat.get(position).sender.equals(SessionManager.username) ){
+        if( !chat.get(position).sender.equals(primaryUser) ){
             holder.sendmsg.setVisibility(View.VISIBLE);
             holder.sendmsg.setText(chat.get(position).text);
         }
@@ -51,8 +59,18 @@ public class personalMessageAdapter extends RecyclerView.Adapter<personalMessage
     }
 
     @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
+    @Override
     public int getItemCount() {
-        return 0;
+        return chat.size();
     }
 
     class viewHolder extends RecyclerView.ViewHolder {

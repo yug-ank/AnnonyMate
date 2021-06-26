@@ -23,7 +23,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_male_avatr"
+            android:src="@drawable/ic_male_avatr"
             app:layout_constraintWidth_default="percent"
             app:layout_constraintHeight_default="percent"
             app:layout_constraintHeight_percent="0.9"
