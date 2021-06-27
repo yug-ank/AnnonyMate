@@ -103,19 +103,22 @@ public class personalMessage extends AppCompatActivity {
                 if(snapshot.exists()){
                     if(Objects.equals(snapshot.child("flag").getValue(), true)){
                         databaseReference.removeEventListener(this);
+                        Log.i("yash", "onChildAdded: coming");
                         showPopUp();
                     }
-                    MessageObject msg = new MessageObject(
-                            snapshot.child("text").getValue().toString(),
-                            snapshot.child("time").getValue().toString(),
-                            //use username for the value of sender ////done
-                            snapshot.child("sender").getValue().toString(),
-                            (Boolean) snapshot.child("flag").getValue(),
-                            snapshot.getKey()
-                    );
-                    Log.i("yash :", "onChildAdded: "+msg.text);
-                    chat.add(msg);
-                    adapter.notifyDataSetChanged();
+                    else {
+                        MessageObject msg = new MessageObject(
+                                snapshot.child("text").getValue().toString(),
+                                snapshot.child("time").getValue().toString(),
+                                //use username for the value of sender ////done
+                                snapshot.child("sender").getValue().toString(),
+                                (Boolean) snapshot.child("flag").getValue(),
+                                snapshot.getKey()
+                        );
+                        Log.i("yash :", "onChildAdded: " + msg.text);
+                        chat.add(msg);
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             }
 
@@ -143,12 +146,12 @@ public class personalMessage extends AppCompatActivity {
 
     private void showPopUp() {
 
-        //ye hai popup window or ye khul nhi rhi
+        // ye hai popup window or ye khul nhi rhi
         // to ise khol dijiye
 
         View view =  LayoutInflater.from(this).inflate(R.layout.layout_personal_message_pop_window, null);
-        TextView popupText = findViewById(R.id.popupText);
-        Button popupButton = findViewById(R.id.popupButton);
+        TextView popupText = view.findViewById(R.id.popupText);
+        Button popupButton = view.findViewById(R.id.popupButton);
 
         ConstraintLayout.LayoutParams layoutParams;
         layoutParams = new ConstraintLayout.LayoutParams((width*3)/2, height/2);
