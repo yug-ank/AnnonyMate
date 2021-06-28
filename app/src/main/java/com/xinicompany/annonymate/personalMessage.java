@@ -177,7 +177,7 @@ public class personalMessage extends AppCompatActivity {
         curTime= new Date().getTime();
         if(curTime - prevTime <= 2500){
             databaseReference.removeValue();
-            databaseReference.child("flag").setValue(true);
+            databaseReference.push().child("flag").setValue(true);
             startActivity(
                     new Intent(this , findingPage.class)
             );
@@ -193,7 +193,8 @@ public class personalMessage extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         databaseReference.removeValue();
-        databaseReference.child("flag").setValue(true);
+        databaseReference.push().child("flag").setValue(true);
+
     }
 
 }
