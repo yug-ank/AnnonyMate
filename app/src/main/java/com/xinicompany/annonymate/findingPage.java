@@ -2,7 +2,6 @@ package com.xinicompany.annonymate;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +21,6 @@ import java.util.Date;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import static java.lang.Math.min;
 
 public class findingPage extends AppCompatActivity {
 
@@ -142,4 +140,5 @@ public class findingPage extends AppCompatActivity {
             }
         }
     }
+
 }

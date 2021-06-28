@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -146,16 +147,15 @@ public class personalMessage extends AppCompatActivity {
 
     private void showPopUp() {
 
-        // ye hai popup window or ye khul nhi rhi
-        // to ise khol dijiye
 
         View view =  LayoutInflater.from(this).inflate(R.layout.layout_personal_message_pop_window, null);
         TextView popupText = view.findViewById(R.id.popupText);
         Button popupButton = view.findViewById(R.id.popupButton);
 
-        ConstraintLayout.LayoutParams layoutParams;
-        layoutParams = new ConstraintLayout.LayoutParams((width*3)/2, height/2);
-        this.addContentView(view, layoutParams);
+        Dialog dialog=new Dialog(personalMessage.this);
+        ConstraintLayout.LayoutParams layoutParams=new ConstraintLayout.LayoutParams(width/2 , height/3);
+        dialog.setContentView(view , layoutParams);
+        dialog.show();
 
         databaseReference.removeValue();
         popupText.setText(secondaryUser + " has left the chat\nclick below to Go Back");
@@ -169,8 +169,6 @@ public class personalMessage extends AppCompatActivity {
                 );
             }
         });
-
-        //dhanyawaad
     }
 
     @Override
