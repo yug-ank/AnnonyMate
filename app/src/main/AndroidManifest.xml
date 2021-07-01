@@ -12,22 +12,23 @@
         android:theme="@style/Theme.AnnonyMate"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ResetPasswordActivity"></activity>
-        <activity android:name=".text_view" />
-        <activity android:name=".cardViewMessage" />
-        <activity android:name=".personalMessage" />
-        <activity android:name=".allMessages"></activity>
-        <activity android:name=".MatchFound" />
-        <activity android:name=".findingPage">
+        <activity android:name=".splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ResetPasswordActivity" />
+        <activity android:name=".text_view" />
+        <activity android:name=".cardViewMessage" />
+        <activity android:name=".personalMessage" />
+        <activity android:name=".allMessages" />
+        <activity android:name=".MatchFound" />
+        <activity android:name=".findingPage"></activity>
         <activity android:name=".SignUp" />
         <activity android:name=".LoginPage" />
-        <activity android:name=".WelcomePage"></activity>
+        <activity android:name=".WelcomePage" />
     </application>
 
 </manifest>
